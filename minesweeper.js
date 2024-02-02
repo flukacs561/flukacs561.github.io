@@ -1,9 +1,5 @@
-// TODO
-// stop the game when won
-
-const numRows = 10;
-const numCols = 10;
-const numMines = 3;
+const numRows = 8;
+const numCols = 8;
 
 const gameBoard = document.getElementById("gameBoard");
 let board = [];
@@ -23,17 +19,14 @@ function initializeBoard() {
   }
 
   // Place mines randomly
-  let minesPlaced = 0;
-  while (minesPlaced < numMines) {
-    const row = getRandomIndex(numRows);
-    const col = getRandomIndex(numCols);
-
-    if (!board[row][col].isMine) {
-      board[row][col].isMine = true;
-      minesPlaced++;
-    }
+  mineLocations = [[0, 1], [0, 2], [0, 7], [2, 5], [3, 2], [3, 4], [3, 5], [4, 0], [4, 1], [4, 6], [6, 5], [7, 1], [7, 2]]
+  function setMineAtLocation(loc) {
+    const fst = loc[0];
+    const snd = loc[1];
+    board[fst][snd].isMine = true;
   }
-
+  mineLocations.map(location => setMineAtLocation(location))
+  
   // Calculate counts for each cell
   for (let i = 0; i < numRows; i++) {
     for (let j = 0; j < numCols; j++) {
