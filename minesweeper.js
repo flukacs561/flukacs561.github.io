@@ -83,7 +83,7 @@ function revealCell(row, col) {
     revealAdjacentCells(row, col);
 	 if (gameWon()) {
 	 	console.log(gameWon())
-	 	alert("You won!");
+	 	alert("You won! Az aknák helyzete összefügg a hasznos betűk helyzetével.");
 	 }
   } else if (gameWon()) {
 		alert("You won!");
